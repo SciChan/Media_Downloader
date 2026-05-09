@@ -1,13 +1,14 @@
 # Media Downloader — Streamlit App
 
-A clean, dark-themed universal media downloader built with Python, Streamlit, and yt-dlp.
+A clean, beautifully structured, light-themed media downloader built with Python, Streamlit, and yt-dlp.
 
 ## Features
-- Paste links from thousands of sites (YouTube, Instagram, TikTok, Twitter, Reddit, etc.)
+- Paste links from supported social platforms (Instagram, TikTok, Twitter/X, Facebook, Reddit, Vimeo, Spotify, SoundCloud, Twitch, Dailymotion)
 - Fetches and displays video info (title, channel, duration, views, thumbnail)
 - Choose from available formats: multiple resolutions up to 4K (Video + Audio) or MP3 audio-only
 - Live progress bar during download
 - One-click save to your device
+- **YouTube downloading is intentionally disabled** to guarantee cloud server stability and prevent IP bans.
 
 ## Local Setup
 
