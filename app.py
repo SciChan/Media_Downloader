@@ -19,17 +19,17 @@ st.markdown("""
 
 /* ── Reset & base ── */
 html, body, [data-testid="stAppViewContainer"] {
-    background: #f8f9fa !important;
+    background: #0a0a0a !important;
 }
 [data-testid="stAppViewContainer"] > .main {
-    background: #f8f9fa;
+    background: #0a0a0a;
 }
 [data-testid="stHeader"] { background: transparent !important; }
 [data-testid="stDecoration"] { display: none; }
-section.main > div { padding-top: 4rem; padding-bottom: 4rem; }
+section.main > div { padding-top: 2rem; }
 
 /* ── Typography ── */
-* { font-family: 'DM Sans', sans-serif; color: #212529; }
+* { font-family: 'DM Sans', sans-serif; color: #e8e4dc; }
 
 h1, h2, h3 {
     font-family: 'Bebas Neue', sans-serif !important;
@@ -39,25 +39,23 @@ h1, h2, h3 {
 /* ── Hero title ── */
 .hero-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3.5rem, 10vw, 6rem);
+    font-size: clamp(3.5rem, 10vw, 6.5rem);
     line-height: 0.9;
     letter-spacing: 0.05em;
-    color: #111111;
+    color: #f5f0e8;
     margin: 0;
-    margin-bottom: 0.5rem;
 }
 .hero-accent {
     color: #ff3c00;
 }
 .hero-sub {
     font-family: 'DM Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    color: #6c757d;
-    letter-spacing: 0.1em;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #7a766e;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-top: 0.5rem;
 }
 
 /* ── Divider ── */
@@ -65,50 +63,45 @@ h1, h2, h3 {
     height: 3px;
     background: linear-gradient(90deg, #ff3c00, transparent);
     border: none;
-    margin: 2rem 0 3rem 0;
+    margin: 1.5rem 0 2rem 0;
 }
 
 /* ── Input fields ── */
 [data-testid="stTextInput"] input {
-    background: #ffffff !important;
-    border: 1px solid #ced4da !important;
-    border-radius: 8px !important;
-    color: #212529 !important;
+    background: #141414 !important;
+    border: 1px solid #2a2a2a !important;
+    border-radius: 4px !important;
+    color: #e8e4dc !important;
     font-family: 'DM Sans', sans-serif !important;
-    font-size: 1.05rem !important;
-    padding: 1rem 1.2rem !important;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+    font-size: 0.95rem !important;
+    padding: 0.75rem 1rem !important;
+    transition: border-color 0.2s ease;
 }
 [data-testid="stTextInput"] input:focus {
     border-color: #ff3c00 !important;
-    box-shadow: 0 0 0 3px rgba(255,60,0,0.15) !important;
+    box-shadow: 0 0 0 2px rgba(255,60,0,0.15) !important;
 }
 [data-testid="stTextInput"] label {
-    font-size: 0.8rem !important;
+    font-size: 0.75rem !important;
     font-weight: 600 !important;
     letter-spacing: 0.12em !important;
     text-transform: uppercase !important;
-    color: #495057 !important;
-    margin-bottom: 0.5rem !important;
+    color: #7a766e !important;
 }
 
 /* ── Select boxes ── */
 [data-testid="stSelectbox"] > div > div {
-    background: #ffffff !important;
-    border: 1px solid #ced4da !important;
-    border-radius: 8px !important;
-    color: #212529 !important;
-    padding: 0.2rem !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+    background: #141414 !important;
+    border: 1px solid #2a2a2a !important;
+    border-radius: 4px !important;
+    color: #e8e4dc !important;
 }
 [data-testid="stSelectbox"] label {
-    font-size: 0.8rem !important;
+    font-size: 0.75rem !important;
     font-weight: 600 !important;
     letter-spacing: 0.12em !important;
     text-transform: uppercase !important;
-    color: #495057 !important;
-    margin-bottom: 0.5rem !important;
+    color: #7a766e !important;
 }
 
 /* ── Buttons ── */
@@ -116,20 +109,17 @@ h1, h2, h3 {
     background: #ff3c00 !important;
     color: #fff !important;
     border: none !important;
-    border-radius: 6px !important;
+    border-radius: 3px !important;
     font-family: 'Bebas Neue', sans-serif !important;
-    font-size: 1.2rem !important;
+    font-size: 1.1rem !important;
     letter-spacing: 0.12em !important;
-    padding: 0.8rem 2rem !important;
-    transition: background 0.2s, transform 0.1s, box-shadow 0.2s !important;
+    padding: 0.65rem 2rem !important;
+    transition: background 0.2s, transform 0.1s !important;
     width: 100%;
-    box-shadow: 0 4px 6px rgba(255,60,0,0.2) !important;
-    margin-top: 1rem;
 }
 .stButton > button:hover {
     background: #e03400 !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 12px rgba(255,60,0,0.25) !important;
+    transform: translateY(-1px) !important;
 }
 .stButton > button:active {
     transform: translateY(0) !important;
@@ -140,60 +130,52 @@ h1, h2, h3 {
     background: transparent !important;
     color: #ff3c00 !important;
     border: 2px solid #ff3c00 !important;
-    border-radius: 6px !important;
+    border-radius: 3px !important;
     font-family: 'Bebas Neue', sans-serif !important;
-    font-size: 1.2rem !important;
+    font-size: 1.1rem !important;
     letter-spacing: 0.12em !important;
-    padding: 0.8rem 2rem !important;
+    padding: 0.65rem 2rem !important;
     transition: all 0.2s !important;
     width: 100%;
-    margin-top: 1rem;
 }
 [data-testid="stDownloadButton"] > button:hover {
     background: #ff3c00 !important;
     color: #fff !important;
-    box-shadow: 0 4px 6px rgba(255,60,0,0.2) !important;
 }
 
 /* ── Info card ── */
 .info-card {
-    background: #ffffff;
-    border: 1px solid #e9ecef;
-    border-left: 4px solid #ff3c00;
-    border-radius: 8px;
-    padding: 2.5rem 2rem;
-    margin: 2.5rem 0;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    background: #111111;
+    border: 1px solid #222;
+    border-left: 3px solid #ff3c00;
+    border-radius: 4px;
+    padding: 1.2rem 1.4rem;
+    margin: 1.5rem 0;
 }
 .info-card .title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: 0.04em;
-    color: #212529;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.06em;
+    color: #f5f0e8;
+    margin-bottom: 0.3rem;
 }
 .info-card .meta {
-    font-size: 0.9rem;
-    color: #6c757d;
+    font-size: 0.82rem;
+    color: #7a766e;
     letter-spacing: 0.05em;
 }
 .info-card .meta span {
-    color: #495057;
+    color: #aaa9a1;
     font-weight: 600;
 }
 
 /* ── Status messages ── */
 .stAlert {
-    background: #ffffff !important;
-    border: 1px solid #e9ecef !important;
-    border-radius: 8px !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.02) !important;
+    background: #111111 !important;
+    border-radius: 4px !important;
 }
 [data-testid="stNotification"] {
-    background: #ffffff !important;
-    border: 1px solid #e9ecef !important;
-    border-radius: 8px !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+    background: #111 !important;
 }
 
 /* ── Progress bar ── */
@@ -204,10 +186,15 @@ h1, h2, h3 {
 /* ── Thumbnail ── */
 .thumb-wrap {
     position: relative;
-    border-radius: 8px;
+    border-radius: 4px;
     overflow: hidden;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin-bottom: 1rem;
+}
+.thumb-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
 }
 
 /* ── Radio buttons ── */
@@ -216,23 +203,21 @@ h1, h2, h3 {
 
 /* ── Expander ── */
 [data-testid="stExpander"] {
-    background: #ffffff !important;
-    border: 1px solid #e9ecef !important;
-    border-radius: 8px !important;
-    padding: 0.5rem !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.02) !important;
+    background: #111 !important;
+    border: 1px solid #222 !important;
+    border-radius: 4px !important;
 }
 
 /* ── Footer ── */
 .footer {
     text-align: center;
-    font-size: 0.8rem;
-    color: #adb5bd;
+    font-size: 0.75rem;
+    color: #3a3a3a;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid #e9ecef;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #1a1a1a;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -258,29 +243,13 @@ def format_size(bytes_val):
 
 
 def is_valid_url(url):
-    platforms = [
-        r"instagram\.com",
-        r"facebook\.com|fb\.watch",
-        r"tiktok\.com",
-        r"twitter\.com|x\.com",
-        r"reddit\.com",
-        r"vimeo\.com",
-        r"dailymotion\.com",
-        r"twitch\.tv",
-        r"soundcloud\.com",
-        r"spotify\.com",
-    ]
-    pattern = r"(https?://)?(www\.)?(" + "|".join(platforms) + r")/.+"
+    # Allow any valid HTTP/HTTPS URL since yt-dlp supports thousands of sites natively
+    pattern = r"^https?://.+"
     return bool(re.match(pattern, url.strip()))
 
 
 def fetch_info(url):
-    ydl_opts = {
-        "quiet": True,
-        "no_warnings": True,
-        "skip_download": True,
-        "extractor_args": {"youtube": ["player_client=ios,android"]},
-    }
+    ydl_opts = {"quiet": True, "no_warnings": True, "skip_download": True}
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         return ydl.extract_info(url, download=False)
 
@@ -364,7 +333,6 @@ def download_video(url, fmt, progress_bar, status_text):
         "progress_hooks": [progress_hook],
         "quiet": True,
         "no_warnings": True,
-        "extractor_args": {"youtube": ["player_client=ios,android"]},
     }
 
     if fmt["type"] == "audio":
@@ -384,8 +352,15 @@ def download_video(url, fmt, progress_bar, status_text):
     except Exception as e:
         error_str = str(e)
         if "ffmpeg" in error_str.lower() or "merge" in error_str.lower():
-            status_text.empty()
-            raise Exception("FFmpeg is missing! High-quality downloads require FFmpeg to merge video and audio streams. Please install it and add it to your system PATH.")
+            # Fallback: use best combined format that doesn't require merging
+            status_text.markdown(
+                '<p style="color:#ff3c00;font-size:0.82rem;">Retrying with best format…</p>',
+                unsafe_allow_html=True,
+            )
+            ydl_opts["format"] = "best"
+            ydl_opts.pop("merge_output_format", None)
+            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                ydl.download([url])
         else:
             raise
 
@@ -407,21 +382,18 @@ if "file_name" not in st.session_state:
 
 
 # ── UI ─────────────────────────────────────────────────────────────────────────
-
 st.markdown("""
 <div class="hero-title">
   <span class="hero-accent">MEDIA</span><br>DOWN<br>LOADER
 </div>
-<p class="hero-sub" style="font-size: 0.85rem; line-height: 1.6;">
-  <b>Supported Platforms:</b> Instagram • TikTok • X (Twitter) • Facebook • Reddit • Vimeo • SoundCloud • Spotify • Twitch • Dailymotion
-</p>
+<p class="hero-sub">Download from YouTube, Instagram, TikTok, and more</p>
 <hr class="red-line">
 """, unsafe_allow_html=True)
 
 # URL Input
 url = st.text_input(
     "Media URL",
-    placeholder="https://www.instagram.com/p/... or https://www.tiktok.com/...",
+    placeholder="https://www.youtube.com/watch?v=... or https://www.instagram.com/p/...",
     key="url_input",
 )
 
@@ -443,10 +415,8 @@ if clear_btn:
 if fetch_btn:
     if not url:
         st.error("Please enter a media URL.")
-    elif "youtube" in url.lower() or "youtu.be" in url.lower():
-        st.error("YouTube downloads are unsupported to ensure the app's server stability.")
     elif not is_valid_url(url):
-        st.error("Platform not supported. Try Instagram, TikTok, Twitter, Facebook, etc.")
+        st.error("Please enter a valid HTTP/HTTPS URL.")
     else:
         with st.spinner("Fetching video info…"):
             try:
@@ -537,22 +507,24 @@ if st.session_state.video_info:
 # ── How-to expander ────────────────────────────────────────────────────────────
 with st.expander("HOW TO USE"):
     st.markdown("""
-    1. **Paste** a media URL (Instagram, TikTok, Facebook, Twitter, etc.) into the field above.
+    1. **Paste** a media URL (YouTube, Instagram, TikTok, Facebook, Twitter, etc.) into the field above.
     2. Click **Fetch Video Info** to preview the media.
     3. Choose your preferred **format / quality**.
     4. Click **Download** — the file will be prepared on the server.
     5. Click **Save** to download the file to your device.
 
     **Supported Platforms:**
+    - YouTube & YouTube Music
     - Instagram (Reels, Posts, Stories)
     - TikTok
     - Facebook (Videos, Reels)
     - Twitter/X
     - Reddit
     - Vimeo
+    - Dailymotion
+    - Twitch
     - SoundCloud
-
-    > 🚫 **Note on YouTube**: YouTube links are purposely blocked in this app to prevent server IP bans and guarantee stability for other platforms.
+    - Spotify
 
     > ⚠️ Only download content you have the right to use.  
     > This tool is intended for personal, offline viewing of media you own or have permission to download.
