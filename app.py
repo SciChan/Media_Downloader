@@ -248,13 +248,15 @@ def is_valid_url(url):
     return bool(re.match(pattern, url.strip()))
 
 
-def fetch_info(url):
+def fetch_info(url, cookie_path=None):
     ydl_opts = {
         "quiet": True,
         "no_warnings": True,
         "skip_download": True,
         "extractor_args": {"youtube": ["player_client=ios,android"]},
     }
+    if cookie_path:
+        ydl_opts["cookiefile"] = cookie_path
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         return ydl.extract_info(url, download=False)
 
@@ -308,7 +310,7 @@ def get_formats(info):
     return formats
 
 
-def download_video(url, fmt, progress_bar, status_text):
+def download_video(url, fmt, progress_bar, status_text, cookie_path=None):
     tmpdir = tempfile.mkdtemp()
     output_path = os.path.join(tmpdir, "%(title)s.%(ext)s")
     downloaded_file = [None]
@@ -340,6 +342,8 @@ def download_video(url, fmt, progress_bar, status_text):
         "no_warnings": True,
         "extractor_args": {"youtube": ["player_client=ios,android"]},
     }
+    if cookie_path:
+        ydl_opts["cookiefile"] = cookie_path
 
     if fmt["type"] == "audio":
         ydl_opts["postprocessors"] = [{
@@ -381,6 +385,20 @@ if "file_name" not in st.session_state:
 
 
 # ── UI ─────────────────────────────────────────────────────────────────────────
+
+with st.sidebar:
+    st.markdown("<h3 style='font-family: Bebas Neue; letter-spacing: 0.1em; color: #ff3c00;'>SETTINGS</h3>", unsafe_allow_html=True)
+    st.markdown("**Bypass 403 Forbidden Errors**")
+    st.caption("Upload a YouTube `cookies.txt` file to authenticate downloads and bypass IP blocks on Cloud servers.")
+    cookie_upload = st.file_uploader("Upload cookies.txt", type=["txt"])
+    cookie_path = None
+    if cookie_upload:
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".txt") as tmp_cookie:
+            tmp_cookie.write(cookie_upload.getvalue())
+            cookie_path = tmp_cookie.name
+    
+    st.markdown("---")
+
 st.markdown("""
 <div class="hero-title">
   <span class="hero-accent">MEDIA</span><br>DOWN<br>LOADER
@@ -419,7 +437,7 @@ if fetch_btn:
     else:
         with st.spinner("Fetching video info…"):
             try:
-                info = fetch_info(url)
+                info = fetch_info(url, cookie_path)
                 st.session_state.video_info = info
                 st.session_state.file_bytes = None
                 st.session_state.file_name = None
@@ -476,7 +494,7 @@ if st.session_state.video_info:
         status_text = st.empty()
 
         try:
-            filepath = download_video(url, selected_fmt, progress_bar, status_text)
+            filepath = download_video(url, selected_fmt, progress_bar, status_text, cookie_path)
             progress_bar.progress(1.0)
 
             if filepath and os.path.exists(filepath):
@@ -518,12 +536,9 @@ with st.expander("HOW TO USE"):
     - TikTok
     - Facebook (Videos, Reels)
     - Twitter/X
-    - Reddit
-    - Vimeo
-    - Dailymotion
-    - Twitch
-    - SoundCloud
-    - Spotify
+
+    > **Getting HTTP Error 403?**
+    > YouTube blocks Cloud IPs. Install the "Get cookies.txt LOCALLY" extension in Chrome/Firefox, go to YouTube, export your cookies to a file, and upload it in the left sidebar to bypass the block!
 
     > ⚠️ Only download content you have the right to use.  
     > This tool is intended for personal, offline viewing of media you own or have permission to download.
