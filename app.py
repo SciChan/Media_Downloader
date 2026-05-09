@@ -249,7 +249,15 @@ def is_valid_url(url):
 
 
 def fetch_info(url):
-    ydl_opts = {"quiet": True, "no_warnings": True, "skip_download": True}
+    ydl_opts = {
+        "quiet": True,
+        "no_warnings": True,
+        "skip_download": True,
+        "extractor_args": {"youtube": ["player_client=android", "player_skip=webpage"]},
+        "http_headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        },
+    }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         return ydl.extract_info(url, download=False)
 
@@ -333,6 +341,10 @@ def download_video(url, fmt, progress_bar, status_text):
         "progress_hooks": [progress_hook],
         "quiet": True,
         "no_warnings": True,
+        "extractor_args": {"youtube": ["player_client=android", "player_skip=webpage"]},
+        "http_headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        },
     }
 
     if fmt["type"] == "audio":
